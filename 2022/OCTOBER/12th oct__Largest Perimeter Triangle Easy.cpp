@@ -1,6 +1,7 @@
 PROBLEM:https://leetcode.com/problems/largest-perimeter-triangle/
 
 /*
+video:https://www.youtube.com/watch?v=gGsTZAK4F_I
 tc:O(n)
 sc:O(1)
 pseudo code: sum of  two smaller sides should be greater than the largest side
