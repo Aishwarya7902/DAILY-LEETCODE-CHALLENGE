@@ -47,3 +47,18 @@ public:
       return false;
     }
 };
+
+/*method 3
+tc:
+sc:
+pseudo code:
+1.since set contains only unique elements hence its size will always be less than or equal to size of nums
+if nums has duplicate elements then size of set will be less than nums ....if nums has all unique elements then set and nums will have same size
+*/
+
+class Solution {
+public:
+    bool containsDuplicate(vector<int>& nums) {
+      return nums.size()> set<int>(nums.begin(),nums.end()).size();  
+    }
+};
