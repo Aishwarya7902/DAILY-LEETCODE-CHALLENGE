@@ -32,3 +32,31 @@ public:
       return ans;
     }
 };
+
+/*method 2
+tc:
+sc:
+*/
+
+#include<bits/stdc++.h>
+class Solution {
+public:
+    string makeGood(string s) {
+       string ans;
+       for(int i=0;i<s.size();i++){
+         if(ans.empty())
+         {
+           ans.push_back(s[i]);
+           continue;
+         }
+         if(abs(ans.back()-s[i])==32){
+           ans.pop_back();
+         }
+         else{
+           ans.push_back(s[i]);
+         }
+       }
+      
+      return ans;
+    }
+};
