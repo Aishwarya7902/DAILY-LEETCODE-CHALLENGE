@@ -29,5 +29,24 @@ public:
     }
 };
 
+/*METHOD 2
+USING TWO POINTER TECHNIQUE
+TC: O(N) //since we are just iterating over the array elements
+sc: O(1) // we are doing modification in the given array only
+*/
+class Solution {
+public:
+    int removeDuplicates(vector<int>& nums) {
+        int i=0;
+      for(int k=1;k<nums.size();k++){
+        if(nums[i]!=nums[k]){
+          i++;
+          nums[i]=nums[k];
+        }
+      }
+      return i+1;
+    }
+};
+
 
 
