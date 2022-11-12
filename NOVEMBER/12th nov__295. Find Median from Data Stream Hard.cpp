@@ -5,6 +5,8 @@ VIDEO: https://www.youtube.com/watch?v=fpDDEgx6OmA
 METHOD 1 (TLE)
 TC: nlogn+ o(n) //sorting+ n times function call hoga
 SC:
+
+MISTAKE: ki mera wrong ans aa raha tha ....coz pahle sort karne ke bad mean ,mode and median nikala jata hai (class 10th yaad karo)
 */
 
 #include<bits/stdc++.h>
