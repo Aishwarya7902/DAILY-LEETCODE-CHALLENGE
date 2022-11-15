@@ -1,5 +1,5 @@
 PROBLEM:https://leetcode.com/problems/count-complete-tree-nodes/
- VIDEO:
+ VIDEO: (striver bhaiya):https://www.youtube.com/watch?v=u-yWemKGWO0
 
 /*
 INITIAL APPROACH
@@ -8,7 +8,7 @@ PSEUDO CODE:
 2.call left ,call right 
 3.return 1+left+right
 TC: o(n)
-SC:
+AUXIALIARY SPACE:  o(h) and in worst case the height of a complete binary tree is log(n)
 */
 class Solution {
 public:
