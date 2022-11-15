@@ -17,3 +17,41 @@ public:
         return 1+countNodes(root->left)+countNodes(root->right);
     }
 };
+
+
+/*
+METHOD 2 
+USING THE PROPERTIES OF COMPLETE BINARY TREE
+TC: O((logn)^2).....coz at max there will logn nodes in a cbt and for every node we will calculate height ...which in worst case will take logn..hence
+ time complexity boils down to (logn*logn)
+AUXILIARY SPACE: O(logn)...coz at max height of tree can go upto logn in   a CBT
+*/
+
+class Solution {
+private:
+  int findHeightLeft(TreeNode* node){
+    int hgt=0;
+    while(node){
+      hgt++;
+      node=node->left;
+    }
+    return hgt;
+  }
+  
+  int findHeightRight(TreeNode* node){
+    int hgt=0;
+    while(node){
+      hgt++;
+      node=node->right;
+    }
+    return hgt;
+  }
+public:
+    int countNodes(TreeNode* root) {
+        if(!root)return NULL;
+        int lh=findHeightLeft(root->left);
+        int rh=findHeightRight(root->right);
+      if(lh==rh)return (1<<lh+1)-1;
+     return  1+countNodes(root->left)+countNodes(root->right);
+    }
+};
