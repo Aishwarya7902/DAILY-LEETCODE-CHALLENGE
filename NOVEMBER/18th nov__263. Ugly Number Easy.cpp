@@ -70,3 +70,27 @@ public:
         
     }
 };
+
+/*method 3
+pseudo code:
+1.if n<=0 return false
+2.extract all 2 out of n by dividing it with 2 till n is divisible by 2
+3.extract all 3 out of n by dividing it with 3 till n is divisible by 3
+4.extract all 5 out of n by dividing it with 5 till n is divisible by 5
+5.if at last n becomes 1 return true...otherwise false
+
+tc: O(logn)
+sc:O(1)
+*/
+
+class Solution {
+public:
+    bool isUgly(int n) {
+      if(n<=0)return false;
+      while(n%2==0)n/=2;
+      while(n%3==0)n/=3;
+      while(n%5==0)n/=5;
+      return n==1;
+      
+    }
+};
