@@ -52,7 +52,7 @@ public:
     }
 };
 /*METHOD 2 (RECURSIVE)
-tc: O(n)
+tc: O(logn) coz every time we are doing either n/2 or n/3 or n/5
 sc:O(1)
 */
 class Solution {
