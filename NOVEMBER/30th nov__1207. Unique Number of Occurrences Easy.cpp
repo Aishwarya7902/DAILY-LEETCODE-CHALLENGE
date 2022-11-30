@@ -1,5 +1,5 @@
 PROBLEM:https://leetcode.com/problems/unique-number-of-occurrences/
-video:
+video: https://www.youtube.com/watch?v=x8oL-BaeeGM
 
 /*
 MY INITIAL APPROACH
