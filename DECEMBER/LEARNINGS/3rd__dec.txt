@@ -1,0 +1,18 @@
+1.🔥🔥
+if u r storing frequecy in a map...and if u want to sort by the value corresponding to each key in decreasing oreder....
+do one thing ...take a vector of pair class ..traverse map...store each element of map in vector...
+now sort the vector a comparator
+sort(v.begin(),v.end(),comp)
+
+
+bool comp(pair<int,int>&a,pair<int,int>&b){
+return a.second>b.second;
+}
+
+2.🔥🔥
+if u want to make a string containig 3 c ....do one thing
+string(3,c)
+
+3.🔥🔥
+if u want to sort by value(lets say value in map is frequency of each character) of a map in decreasing order....do one thing
+make a maxheap<int,char>...this will hold the character with max frequency at the top
