@@ -7,6 +7,7 @@ TC: O(N^2)
 SC:O(1)
 */
 
+
 #include<bits/stdc++.h>
 class Solution {
 private:
@@ -49,7 +50,8 @@ Intuition: We just have to take average difference and return the index giving m
 Time Complexity => O(N)
 Space Complexity => O(1)
 
-*/#include<bits/stdc++.h>
+*/
+#include<bits/stdc++.h>
 class Solution {
 public:
     int minimumAverageDifference(vector<int>& nums) {
@@ -83,4 +85,40 @@ public:
       return indx;
     }
 };
+
+/*METHOD 3:
+LEARNING 🔥🔥 prefix sum
+A BETTER CODE VERSION
+VIDEO: https://www.youtube.com/watch?v=EZhJOK32ANQ
+Time Complexity => O(N)
+Space Complexity => O(1)
+
+*/
+
+class Solution {
+public:
+    int minimumAverageDifference(vector<int>& nums) {
+      int n(size(nums)),minAvgDif(INT_MAX),index=0;
+      long long sumFromFront(0),totalSum(0),sumFromEnd(0);
+      for(auto x:nums){
+        totalSum+=x;
+      }
+        
+      for(int i=0;i<n;i++){
+        sumFromFront+=nums[i];
+        sumFromEnd=totalSum-sumFromFront;
+        int avg1=sumFromFront/(i+1);
+        int avg2=(i==n-1)?0 :sumFromEnd/(n-i-1);
+        if(abs(avg1-avg2)<minAvgDif){
+          minAvgDif=abs(avg1-avg2);
+          index=i;
+        }
+        
+      }
+      return index;
+    }
+};
+
+*/
+
 
