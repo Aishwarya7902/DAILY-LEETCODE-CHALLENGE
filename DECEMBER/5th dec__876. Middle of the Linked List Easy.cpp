@@ -48,12 +48,12 @@ USING THE CONCEPT OF SLOW AND FAST POINTER
 
 class Solution {
 public:
-  //since fast moves at 2x speed than slow ...hence when fast is at end of linked list then slow would be somewhere at the end
+  //since fast moves at 2x speed than slow ...hence when fast is at end of linked list then slow would be somewhere at the middle
   
   //tc:O(n/2)
   //sc:O(1)
     ListNode* middleNode(ListNode* head) {
-      ListNode slow=head,fast=head;
+      ListNode *slow=head,*fast=head;
       while(fast && fast->next){
         slow=slow->next;
         fast=fast->next->next;
