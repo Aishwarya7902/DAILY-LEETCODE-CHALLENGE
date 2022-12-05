@@ -1,0 +1,3 @@
+learning : learnt the concept of fast and slow pointers
+
+//since fast moves at 2x speed than slow ...hence when fast is at end of linked list then slow would be somewhere at the middle
