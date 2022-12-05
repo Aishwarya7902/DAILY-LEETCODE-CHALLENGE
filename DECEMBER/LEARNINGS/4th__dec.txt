@@ -1,0 +1,4 @@
+learning :
+learnt prefix sum
+totalSum
+currSum....(kuch yad aaya.........?????????)  hope u got it.
