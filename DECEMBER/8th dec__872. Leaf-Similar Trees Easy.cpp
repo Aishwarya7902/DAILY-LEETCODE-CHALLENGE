@@ -40,3 +40,35 @@ public:
     }
 };
 
+/*
+METHOD 2 (LEARNT FROM Lee's blog)
+blog link:https://leetcode.com/problems/leaf-similar-trees/solutions/152329/c-java-python-o-h-space/?orderBy=most_votes
+
+Only O(H) space for stack, no extra space for comparation.
+O(1) is also possible if we can modify the tree.
+*/
+
+class Solution {
+private:
+int dfs(stack<TreeNode*>&s)
+{
+    while(true){
+      TreeNode* root=s.top();
+      s.pop();
+      if(root->right)s.push(root->right);
+      if(root->left)s.push(root->left);
+      if(!root->left && !root->right)return root->val;  
+    }
+}
+public:
+    bool leafSimilar(TreeNode* root1, TreeNode* root2) {
+        stack<TreeNode*> s1, s2;
+        s1.push(root1);
+        s2.push(root2);
+        while(!s1.empty() && !s2.empty())
+         if(dfs(s1)!=dfs(s2))
+           return false;
+        return s1.empty()&& s2.empty();
+     }
+};
+
