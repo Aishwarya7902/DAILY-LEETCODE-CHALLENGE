@@ -29,3 +29,31 @@ public:
 
     }
 };
+
+/*METHOD 2
+
+We pass the minimum and maximum values to the children,
+At the leaf node, we return max - min through the path from the root to the leaf.
+TC:O(N)
+SC:O(N)
+*/
+
+class Solution {
+private:
+int helper(TreeNode* node,int currMax,int currMin){
+  if(!node)
+    return currMax-currMin;
+ currMax=max(currMax,node->val);
+ currMin=min(currMin,node->val);
+ int left=helper(node->left,currMax,currMin);
+ int right=helper(node->right,currMax,currMin);
+ return max(left,right);
+}
+
+public:
+    int maxAncestorDiff(TreeNode* root) {
+        if(!root)
+         return 0;
+         return helper(root,root->val,root->val);
+    }
+};
