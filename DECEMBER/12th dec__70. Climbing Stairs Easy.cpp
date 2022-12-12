@@ -2,8 +2,11 @@ PROBLEM:https://leetcode.com/problems/climbing-stairs/description/
 VIDEO (BEST ):
 
 /*
-SELF  (USING DP)
-TC:
+SELF  (USING DP) -BOTTOM UP
+Time Complexity :
+1) Recursion : O(2^n) - We have 2 possibilities for every stair.
+2) Memoization : O(n) - We are not visiting already solved subproblems
+3) Bottom UP : O(n) as we are iterating only once from i = 2 to i = n
 SC:
 
 */
