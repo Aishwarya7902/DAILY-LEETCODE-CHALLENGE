@@ -72,16 +72,7 @@ SC:O(N*M)
 */
 
 class Solution {
-private:
-int helper(int i,int j,vector<vector<int>>& matrix,vector<vector<int>>&dp){
-    if(j<0 || j>=matrix[0].size()) return 1e8;
-    if(i==0)return matrix[0][j];//base case
-    if(dp[i][j]!=-1)return dp[i][j];
-    int u=matrix[i][j]+helper(i-1,j,matrix,dp);
-    int ld=matrix[i][j]+helper(i-1,j-1,matrix,dp);
-    int rd=matrix[i][j]+helper(i-1,j+1,matrix,dp);
-    return dp[i][j]=min({u,ld,rd});
-}
+
 public:
     int minFallingPathSum(vector<vector<int>>& matrix) {
       int n=matrix.size();
@@ -109,6 +100,49 @@ public:
       }
       for(int j=0;j<m;j++){
           mini=min(mini,dp[n-1][j]);
+      }
+      return mini; 
+    }
+};
+
+/*
+METHOD 4
+SPACE OPTIMIZATION
+TC:O(N*M) +O(M)
+SC:O(M)
+*/
+
+class Solution {
+private:
+
+public:
+    int minFallingPathSum(vector<vector<int>>& matrix) {
+      int n=matrix.size();
+      int m=matrix[0].size();
+      int mini=1e8;
+      vector<int> prev(m,0),curr(m,0);
+      for(int j=0;j<m;j++){
+         prev[j]=matrix[0][j];
+      } 
+      for(int i=1;i<n;i++){
+          for(int j=0;j<m;j++){
+              int u=matrix[i][j]+prev[j];
+              int ld=matrix[i][j];
+              if(j-1>=0)
+               ld+=prev[j-1];
+             else
+              ld+=1e8;
+            int rd=matrix[i][j];
+             if(j+1<m)
+              rd+=prev[j+1];
+            else
+             rd+=1e8;
+            curr[j]=min({u,ld,rd});
+          }
+          prev=curr;
+      }
+      for(int j=0;j<m;j++){
+          mini=min(mini,prev[j]);
       }
       return mini; 
     }
