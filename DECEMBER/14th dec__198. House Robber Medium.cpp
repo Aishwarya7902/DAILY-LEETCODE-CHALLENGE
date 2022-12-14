@@ -9,20 +9,18 @@ SC:O(2^n) //recursive stack space
 */
 
 class Solution {
-int helper(vector<int>& nums,int n){
-    if(n<=0)
-     return 0;
-     
-    int option1=nums[n-1]+helper(nums,n-2);
-    int option2=helper(nums,n-1);
-    return max(option1,option2);
-
+private:
+int helper(int indx,vector<int>& nums){
+    if(indx<0)return 0;
+    if(indx==0)return nums[indx];
+    int pick=nums[indx]+helper(indx-2,nums);
+    int notPick=0+helper(indx-1,nums);
+    return max(pick,notPick);
 }
 public:
     int rob(vector<int>& nums) {
-       int n=nums.size();
-       
-       return helper(nums,n,dp); 
+        int n=nums.size();
+        return helper(n-1,nums);
     }
 };
                                  
@@ -32,23 +30,23 @@ TC: O(N)
 SC: O(N) //auxiliary stack space +O(N) //for dp vector
 */
 class Solution {
-int helper(vector<int>& nums,int n,vector<int>&dp){
-    if(n<=0)
-     return 0;
-     if(dp[n]!=-1)return dp[n];
-    int option1=nums[n-1]+helper(nums,n-2,dp);
-    int option2=helper(nums,n-1,dp);
-    return dp[n]=max(option1,option2);
-
+private:
+int helper(int indx,vector<int>& nums,vector<int>&dp){
+    if(indx<0)return 0;
+    if(indx==0)return nums[indx];
+    //if already stored simply return it
+    if(dp[indx]!=-1)return dp[indx];
+    int pick=nums[indx]+helper(indx-2,nums,dp);
+    int notPick=0+helper(indx-1,nums,dp);
+    return dp[indx]=max(pick,notPick);
 }
 public:
     int rob(vector<int>& nums) {
-       int n=nums.size();
-       vector<int>dp(n+1,-1);
-       return helper(nums,n,dp); 
+        int n=nums.size();
+        vector<int>dp(n,-1);
+        return helper(n-1,nums,dp);
     }
-};
-                                 
+};                          
                                  
                                  
                                 
