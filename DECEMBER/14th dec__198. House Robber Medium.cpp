@@ -1,5 +1,6 @@
 problem:https://leetcode.com/problems/house-robber/description/
 best blog:https://leetcode.com/problems/house-robber/solutions/156523/from-good-to-great-how-to-approach-most-of-dp-problems/?orderBy=most_votes
+video (striver bhaiya):https://youtu.be/GrMBfJNk_NY
 
 /*
 RECURSIVE __tle
@@ -46,7 +47,31 @@ public:
         vector<int>dp(n,-1);
         return helper(n-1,nums,dp);
     }
-};                          
+}; 
+
+/*
+TABULATION
+TC: O(N)
+SC:O(N) //no auxiliary stack space
+*/
+
+class Solution {
+
+public:
+    int rob(vector<int>& nums) {
+        int n=nums.size();
+        vector<int>dp(n,0);
+        dp[0]=nums[0];
+        for(int i=1;i<n;i++){
+            int take=nums[i];
+            if(i>1)
+             take+=dp[i-2];
+            int notTake=0+dp[i-1];
+            dp[i]=max(take,notTake);
+        }
+        return dp[n-1];
+    }
+};
                                  
                                  
                                 
