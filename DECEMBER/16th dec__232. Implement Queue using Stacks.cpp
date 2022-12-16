@@ -1,5 +1,6 @@
 PROBLEM: https://leetcode.com/problems/implement-queue-using-stacks/description/
 VIDEO(STRIVER BHAIYA): https://www.youtube.com/watch?v=3Et9MrMc02A
+prince bhaiya : https://www.youtube.com/watch?v=d0l8-7Bv-i0
 
 /*
 tc:
