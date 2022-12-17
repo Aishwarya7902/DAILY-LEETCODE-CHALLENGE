@@ -7,9 +7,10 @@ TC: O(N)
 SC:O(N)
 PSEUDO CODE:
 1.if current element is any of the operator then
-2.take out two elements from stack and perform operation on them
-3.push the result of above opertaion in stack
-4.move forward
+->take out two elements from stack and perform operation on them
+->.push the result of above opertaion in stack
+->.move forward
+2.else simply push in stack
 
 */
 
@@ -50,6 +51,42 @@ public:
                 hence we pass a,b not as b,a
                 */
                 int result=Operate(a,b,token);
+                st.push(result);
+                
+            }
+            else{
+                st.push(stoi(token));
+            }
+        }
+        return st.top();
+    }
+};
+
+/*
+using lambda function
+*/
+
+#include<bits/stdc++.h>
+class Solution {
+public:
+unordered_map<string,function<int(int,int)>>mp
+={
+{"+",[](int a,int b){return a+b;}},
+{"-",[](int a,int b){return a-b;}},
+{"/",[](int a,int b){return a/b;}},
+{"*",[](int a,int b){return (long)a*(long)b;}}
+};
+    int evalRPN(vector<string>& tokens) {
+        stack<int>st;
+        for( string &token:tokens){
+            if(token == "+" || token == "-" || token == "*" || token == "/"){
+                //top ke 2 elements ko nikalo and operate kar do
+                //push result in stack
+                int b =st.top();
+                st.pop();
+                int a =st.top();
+                st.pop();
+                int result=mp[token](a,b);
                 st.push(result);
                 
             }
