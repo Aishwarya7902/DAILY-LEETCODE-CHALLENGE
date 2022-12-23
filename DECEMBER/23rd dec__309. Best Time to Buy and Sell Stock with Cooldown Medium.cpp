@@ -1,9 +1,9 @@
-PROBLEM:
-VIDEO:
+PROBLEM:https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/description/
+VIDEO(MAZHAR BHAIYA....BEST VIDEO): https://www.youtube.com/watch?v=iTvEXpOAyHY
 /*
 RECURSION
 TC:2^n
-sc:
+sc:2^n
 */
 
 
@@ -34,8 +34,8 @@ public:
 
 /*
 MEMOIZATION
-TC:
-SC:
+TC: O(n^2)
+SC: o(5000*2) which is nearly constant
 */
 
 class Solution {
@@ -63,5 +63,32 @@ public:
       int n=prices.size();
       bool buy=true;
       return solve(prices,0,n,buy);  
+    }
+};
+
+
+/*BOTTOM UP
+TC:O(N^2)
+SC:O(N)
+*/
+
+class Solution {
+public:
+    int maxProfit(vector<int>& prices) {
+        int n=prices.size();
+        if(n<=1)return 0;
+        vector<int>dp(n,0);
+        dp[0]=0;
+        dp[1]=max(prices[1]-prices[0],0);
+        for(int i=2;i<n;i++){//sell
+         dp[i]=dp[i-1];
+         for(int j=0;j<=i-1;j++){//for every i find best possible buy
+         int today_profit=prices[i]-prices[j];
+         int prev_profit=j>2 ?dp[j-2] :0;
+         dp[i]=max(dp[i],today_profit+prev_profit);
+
+         }
+        }
+        return dp[n-1];
     }
 };
