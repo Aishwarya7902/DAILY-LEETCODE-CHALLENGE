@@ -54,3 +54,31 @@ public:
     return ans; //return ans
     }
 };
+
+
+
+/*
+method 2
+optimised
+*/
+class Solution {
+public:
+    //tc:o(nlogn+mlogn) see video for clarity
+    //https://www.youtube.com/watch?v=KYBB-yFPgF8 (got this on youtube🙂)
+    vector<int> answerQueries(vector<int>& nums, vector<int>& queries) {
+        vector<int>ans;
+        //we are sorting ,because if we take smaller elements first then we can maximize the size subsequence
+        sort(nums.begin(),nums.end());
+        //make a prefix vector
+        vector<int>prefix(nums.size(),0);
+        prefix[0]=nums[0];
+        for(int i=1;i<nums.size();i++){
+            prefix[i]=prefix[i-1]+nums[i];
+        }
+        for(int i=0;i<queries.size();i++){
+            int query=queries[i];
+            ans.push_back(upper_bound(prefix.begin(),prefix.end(),query)-prefix.begin());
+        }
+        return ans;
+    }
+};
