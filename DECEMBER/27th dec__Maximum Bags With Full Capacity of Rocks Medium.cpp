@@ -1,5 +1,5 @@
-PROBLEM:
-VIDEO:
+PROBLEM:https://leetcode.com/problems/maximum-bags-with-full-capacity-of-rocks/
+VIDEO:https://www.youtube.com/watch?v=JpQaui_-a4c
 
 /*
 BRUTE FORCE
