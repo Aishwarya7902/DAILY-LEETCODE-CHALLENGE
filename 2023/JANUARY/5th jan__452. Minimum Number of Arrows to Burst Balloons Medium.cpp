@@ -1,6 +1,7 @@
 PROBLEM:https://leetcode.com/problems/minimum-number-of-arrows-to-burst-balloons/description/
 VIDEO:https://www.youtube.com/watch?v=zfcGwzfDNu0
-
+TC:O(N) +O(NLOGN)
+SC:O(1) AS VECTOR SIZE IS 1 ONLY
 class Solution {
 public:
     int findMinArrowShots(vector<vector<int>>& points) {
