@@ -1,5 +1,5 @@
 PROBLEM:https://leetcode.com/problems/maximum-ice-cream-bars/description/
-VIDEO:
+VIDEO:https://www.youtube.com/watch?v=uY3mWwJvRkA
 
 /*
 DONE BY MYSELF
