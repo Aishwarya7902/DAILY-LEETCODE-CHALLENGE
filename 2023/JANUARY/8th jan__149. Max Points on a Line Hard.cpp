@@ -32,8 +32,73 @@ public:
 };
 
 /*
-OPTIMISATION
+OPTIMISATION- without atan2 function
 TC:O(N^2)
 SC:O(N)
 */
+class Solution {
+public:
+    int maxPoints(vector<vector<int>>& points) {
+        int n = points.size();
+        if(n == 1)
+            return 1;
+        
+        int result = 0;
+        
+        for(int i = 0; i<n; i++) {
+            
+            unordered_map<string, int> mp;
+            
+            for(int j = 0; j<n; j++) {
+                
+                if(i == j) continue;
+                
+                auto dy = points[j][1] - points[i][1];
+                auto dx = points[j][0] - points[i][0];
+                auto gcd = __gcd(dy, dx);
+                
+                string key = to_string(dy/gcd) + "_" + to_string(dx/gcd);
+                
+                mp[key]++;
+                
+            }
+            
+            for(auto &it : mp) {
+                result = max(result, it.second+1);
+            }
+        }
+        
+        return result;
+    }
+};
+
+/*
+using atan2
+*/
+
+class Solution {
+public:
+    int maxPoints(vector<vector<int>>& points) {
+      int n=points.size();
+      if(n==1)return 1;
+      int result=0;
+      for(int i=0;i<n;i++){
+          unordered_map<double,int>mp;
+          for(int j=0;j<n;j++){
+              if(i==j)continue;
+            double dy=points[j][1]-points[i][1];
+            double dx=points[j][0]-points[i][0];
+            auto theta=atan2(dy,dx);
+            mp[theta]++;
+          }
+          for(auto &it:mp){
+              result=max(result,it.second+1);
+          }
+      }
+      
+      return result; 
+    }
+};
+Console
+
 
