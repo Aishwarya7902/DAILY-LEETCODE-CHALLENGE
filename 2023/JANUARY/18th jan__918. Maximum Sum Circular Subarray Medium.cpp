@@ -1,5 +1,5 @@
-PROBLEM:
-VIDEO:
+PROBLEM:  https://leetcode.com/problems/maximum-sum-circular-subarray/solutions/?orderBy=newest_to_oldest
+VIDEO:   https://www.youtube.com/watch?v=Za8V4wkZKkM
 //tc:o(n)
 //sc:o(1)
 
