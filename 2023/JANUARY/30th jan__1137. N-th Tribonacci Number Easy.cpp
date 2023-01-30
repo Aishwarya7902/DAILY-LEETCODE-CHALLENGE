@@ -19,7 +19,7 @@ public:
 };
 
 /*
-memoization:
+DYNAMIC PROGRAMMING:
 tc:o(n)
 sc:o(n)
 
