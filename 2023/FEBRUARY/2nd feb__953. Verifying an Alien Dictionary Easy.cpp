@@ -1,5 +1,5 @@
 PROBLEM:https://leetcode.com/problems/verifying-an-alien-dictionary/description/
-VIDEO:
+VIDEO(code freaks):https://www.youtube.com/watch?v=61BxjyZddVg
 BLOG:
 
 /*
