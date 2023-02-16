@@ -1,4 +1,5 @@
 PROBLEM:https://leetcode.com/problems/maximum-depth-of-binary-tree/description/
+video:https://www.youtube.com/watch?v=eD3tmO66aBA&t=400s
 /*
 TC:O(N)
 SC:O(N) //auxiliary stack space
