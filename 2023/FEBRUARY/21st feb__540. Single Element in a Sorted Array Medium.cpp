@@ -92,7 +92,7 @@ high=mid-1
 
 */
 
-//⌚time complexity :o(n)
+//⌚time complexity :o(logn)
 
 //🚀space complexity: o(1)
 
