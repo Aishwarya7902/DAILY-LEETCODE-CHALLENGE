@@ -23,3 +23,27 @@ public:
     return 0;
     }
 };
+
+/*
+method 2
+Time complexity:
+o(N)
+
+Space complexity:
+o(1)
+
+Intuition
+do a simple xor .....at last xor will contain single element
+
+*/
+
+class Solution {
+public:
+    int singleNonDuplicate(vector<int>& nums) {
+      int xorr=0;
+      for(auto x:nums){
+          xorr=xorr^x;
+      } 
+      return xorr; 
+    }
+};
