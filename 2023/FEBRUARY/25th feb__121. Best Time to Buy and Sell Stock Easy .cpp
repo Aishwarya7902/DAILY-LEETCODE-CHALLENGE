@@ -1,5 +1,6 @@
-PROBLEM:
-VIDEO:
+PROBLEM:https://leetcode.com/problems/best-time-to-buy-and-sell-stock/description/
+
+VIDEO:https://www.youtube.com/watch?v=excAOvwF_Wk&t=119s
 
 /*
 TC:O(N)
