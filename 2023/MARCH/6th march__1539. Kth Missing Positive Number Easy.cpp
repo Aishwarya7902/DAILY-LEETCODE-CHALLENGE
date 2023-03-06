@@ -23,6 +23,7 @@ public:
 
 /*
 method 2
+video(code freaks) :https://www.youtube.com/watch?v=DpEMbKwHJKQ
 tc:o(logn)
 sc:o(1)
 */
