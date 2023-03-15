@@ -18,8 +18,8 @@ hence we  return false
 
 5.at last return true
 
-TC ⏳
-SC 🚀
+TC ⏳:O(N)
+SC 🚀:O(N)
 */
 
 class Solution {
