@@ -1,5 +1,7 @@
 problem:https://leetcode.com/problems/check-completeness-of-a-binary-tree/description/
-video:
+video:MAZHAR BHAIYA
+I.DFS:https://www.youtube.com/watch?v=5zyG8Nw9V78
+II.BFS:https://www.youtube.com/watch?v=08e5EBHoXxE
 
 /*
 method 1:
@@ -40,5 +42,43 @@ public:
           }
       }
       return true; 
+    }
+};
+
+/*
+USING DFS
+LEARNING 
+for cbt i.e complete binary tree
+1. we can represent a binary tree in form of a array
+parent=i
+left child=2*i
+right child=2*i+1
+
+2.CBT ni hoga iff
+(index >totalNode)
+
+intuition:
+if at any point of time ...indx>totalNodes
+it means faltu ke nodes aaye hain beech me ....(null)
+hence not a cbt
+*/
+class Solution {
+public:
+//helper to count nodes
+    int countNode(TreeNode* root){
+        if(root==NULL)return 0;
+        return 1+countNode(root->left)+countNode(root->right);
+    }
+//helper for dfs
+bool dfs(TreeNode* root,int indx,int totalNode){
+    if(root==NULL)return true;
+    if(indx>totalNode)return false;
+    return dfs(root->left,2*indx,totalNode) && dfs(root->right,2*indx+1,totalNode);
+}
+
+    bool isCompleteTree(TreeNode* root) {
+        int totalNodes=countNode(root);
+        int i=1;
+        return dfs(root,i,totalNodes);
     }
 };
