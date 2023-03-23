@@ -31,7 +31,7 @@ public:
       int cnt=0;
       for(int i=0;i<n;i++){
           if(vis[i]==0){
-               dfs(0,graph,vis); 
+               dfs(i,graph,vis); 
                cnt++;
           }
 
