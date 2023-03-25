@@ -65,7 +65,7 @@ public:
 /*
 method 2:
 tc:o(n)
-sc:o(1)  //if we leave space for making graph
+SC:O(N) //adjacency list +visited array
 */
 
 class Solution {
@@ -103,3 +103,51 @@ public:
 
     }
 };
+
+/*
+using pnc
+total no of unreacheable pairs=total no of pairs-total no reacheable pairs
+
+note : we know that nodes in same component are reacheable
+FOR MORE EXPLANATION.............PLEASE PLASE WATCH THE BLOG AND VIDEO MENTIONED ABOVE
+TC:O(N)
+SC:O(N) //adjacency list +visited array
+*/
+
+class Solution {
+public:
+   void dfs(int src,vector<vector<int>>&graph,vector<bool>&vis,long long& cnt){
+        cnt++;
+        vis[src]=1;
+        for(auto v:graph[src]){
+            if(!vis[v])
+            dfs(v,graph,vis,cnt);
+        }
+        
+    }
+    long long countPairs(int n, vector<vector<int>>& edges) {
+        //making a graph
+        vector<vector<int>>graph(n);
+        for(auto it:edges){
+            graph[it[0]].push_back(it[1]);
+            graph[it[1]].push_back(it[0]);
+        }
+        long long ans=((long long)n*(n-1))/2;
+        
+        vector<bool>vis(n,0);
+
+        for(int i=0;i<n;i++){
+            if(!vis[i]){
+            long long cnt=0;
+             dfs(i,graph,vis,cnt);
+             ans-=(cnt*(cnt-1))/2;
+            }
+                       
+            
+        }
+        return ans;
+
+    }
+};
+
+
