@@ -58,3 +58,36 @@ public:
         return helper(days,costs,0);
     }
 };
+
+/*
+memoization
+Now you know the sub problems so we can convert OUR recursion solution to top-down-memoization , 
+ie we store our answers at each step before returning, then if we already knows the answer ,
+we can return right back withour re calculating;
+*/
+
+#include<bits/stdc++.h>
+class Solution {
+public:
+    vector<int> dp;
+    int helper(vector<int>& days, vector<int>& costs,int indx) {
+        int n=days.size();
+        if(indx>=n)return 0;
+        if(dp[indx])return dp[indx];
+        int cost_day=costs[0]+helper(days,costs,indx+1);
+        int i;
+        for(i=indx;i<n && days[i]<days[indx]+7;i++);//skip till 7 days
+
+        int cost_week=costs[1]+helper(days,costs,i);
+         
+         for(i=indx;i<n && days[i]<days[indx]+30;i++);//skip till 30 days
+        int cost_month=costs[2]+helper(days,costs,i);
+        return dp[indx]=min({cost_day, cost_week , cost_month  });
+         
+
+    }
+    int mincostTickets(vector<int>& days, vector<int>& costs) {
+        dp.resize(365);
+        return helper(days,costs,0);
+    }
+};
