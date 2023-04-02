@@ -1,5 +1,5 @@
 PROBLEM:https://leetcode.com/problems/successful-pairs-of-spells-and-potions/
-VIDEO:
+VIDEO:https://www.youtube.com/watch?v=QZI4TCVckpA
 BLOG:
 
 /*
@@ -101,4 +101,57 @@ public:
     }
 };
 
+/*
+method 3
+tc:o(m*logm)+o(n*logm)
+sc:
+using apna lower bound
+*/
+
+
+class Solution {
+public:
+    int apnaLowerBound(int l,int r,vector<int>& potions,int minPotion){
+        int possible;
+        while(l<=r){
+            
+            int mid=l+(r-l)/2;
+            if(potions[mid]>=minPotion){
+                possible=mid;
+                r=mid-1;
+            }
+            else
+             l=mid+1;
+        }
+        return possible;
+    }
+
+    vector<int> successfulPairs(vector<int>& spells, vector<int>& potions, long long success) {
+
+       int n=spells.size();
+       int m=potions.size();
+       //o(m*logm)
+       sort(potions.begin(),potions.end());
+       vector<int>ans;
+       int maxPotion=potions[m-1];
+
+
+       //o(n*logm)
+       for(int i=0;i<n;i++){
+           int spell=spells[i];
+           long long minPotion=ceil((1.0*success)/spell);
+
+           if(minPotion>maxPotion){
+               ans.push_back(0);
+               continue;
+           }
+
+           int index=apnaLowerBound(0,m-1,potions,minPotion);//o(logn)
+
+           //lower bound serches first and smallest index for index >=that element 
+           ans.push_back(m-index);
+       }
+       return ans;
+    }
+};
 
