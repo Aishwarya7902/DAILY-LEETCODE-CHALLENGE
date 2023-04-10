@@ -1,5 +1,6 @@
 PROBLEM: https://leetcode.com/problems/valid-parentheses/description/
-VIDEO:  https://www.youtube.com/watch?v=3ssh_mk4LqY
+VIDEO:  (mazhar bhaiya) https://www.youtube.com/watch?v=3ssh_mk4LqY
+know intuition behind using a stack in this ques (aryan) :https://www.youtube.com/watch?v=urX3N0rJp-4 
 
 /*
 approach 1
