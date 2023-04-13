@@ -1,5 +1,7 @@
 problem:https://leetcode.com/problems/validate-stack-sequences/description/
-video:(mazhar bhaiya) https://www.youtube.com/watch?v=HEh7EtNSXtg
+video:
+(mazhar bhaiya) https://www.youtube.com/watch?v=HEh7EtNSXtg
+(aryan mittal) :https://www.youtube.com/watch?v=lqP82OhRkAA
 blog:
 /*
 self
@@ -61,5 +63,55 @@ public:
            i++;
        }
        return st.empty();
+    }
+};
+
+/*
+MORE BETTER CODE:
+TC:O(M)
+SC:O(M)
+*/
+class Solution {
+public:
+    bool validateStackSequences(vector<int>& pushed, vector<int>& popped) {
+        int i=0,j=0;
+        stack<int>st;
+        for(int x:pushed){
+            st.push(x);
+            while(!st.empty() && st.top()==popped[j]){
+                st.pop();
+                j++;
+            }
+
+        }
+        return st.empty();
+    }
+};
+
+
+/*
+SPACE OPTIMISATION (SEE ARYAN'S VIDEO)
+TC:O(M)
+SC:O(1)
+
+though u should tell the interviewer that it is highly not advisable to change the in input in production
+
+but u also know this technique to create a impact on the interviewer
+*/
+
+class Solution {
+public:
+    bool validateStackSequences(vector<int>& pushed, vector<int>& popped) {
+        int i=0,j=0;
+        
+        for(int x:pushed){
+            pushed[i++]=x;
+            while(i>0 && pushed[i-1]==popped[j]){
+                --i;
+                ++j;
+            }
+
+        }
+        return i==0;
     }
 };
