@@ -4,7 +4,7 @@ VIDEO: (MAZHAR BHAIYA) :https://youtu.be/sH276uTmZ80
 
 /*
 RECURSION
-TC:
+TC: exponential
 SC:
 */
 
@@ -35,8 +35,8 @@ public:
 
 /*
 MEMOIZATION
-TC:
-SC:
+TC:o(n*k)
+SC:o(n*k)
 */
 class Solution {
 public:
