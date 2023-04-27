@@ -5,6 +5,8 @@ video :
 /*
 tc:
 sc:
+// states which have odd no of factors then the last state will be in on state
+//perfect square will have odd no of factors
 */
 
 class Solution {
