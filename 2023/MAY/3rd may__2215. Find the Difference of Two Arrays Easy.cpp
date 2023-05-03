@@ -5,8 +5,8 @@ VIDEO:
 
 BRUTE FORCE
 
-TC:O(N)
-SC:O(N)
+Time complexity: O(MlogM + NlogN)
+Space complexity: O(M+N)
 
 PSEUDO CODE
 1.take a set1 and put distinct elements of nums1
