@@ -76,3 +76,49 @@ public:
 
     }
 };
+
+/*
+METHOD 3
+TC:O(N)
+SC:O(1)
+*/
+
+
+class Solution {
+public:
+    int pairSum(ListNode* head) {
+        //1.finding mid of ll
+        ListNode* slow=head;
+        ListNode* fast=head;
+        while(fast!=NULL && fast->next!=NULL){
+            slow=slow->next;
+            fast=fast->next->next;
+        }
+        ListNode* mid=slow;
+
+        //2.reversing 2nd half of ll
+
+        //reversal code
+        ListNode* prev=NULL;
+        ListNode* nextNode=NULL;
+        while(mid!=NULL){
+            nextNode=mid->next;
+            mid->next=prev;
+            prev=mid;
+            mid=nextNode;
+        }
+
+        //reversal code
+
+        //3.find max sum
+        int result=0;
+        ListNode* curr=head;
+        while(prev!=NULL){
+            result=max(result,curr->val+prev->val);
+            curr=curr->next;
+            prev=prev->next;
+        }
+        return result;
+        
+    }
+};
