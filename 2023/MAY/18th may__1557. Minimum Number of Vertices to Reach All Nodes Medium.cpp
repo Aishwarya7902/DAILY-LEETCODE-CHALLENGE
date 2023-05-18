@@ -1,5 +1,5 @@
 PROBLEM:https://leetcode.com/problems/minimum-number-of-vertices-to-reach-all-nodes/description/
-VIDEO:
+VIDEO:https://www.youtube.com/watch?v=7wGJ1nevpnc
 
 /*
 SOLVED BY SEEING HINT
