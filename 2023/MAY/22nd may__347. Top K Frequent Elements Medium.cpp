@@ -84,3 +84,95 @@ public:
 
     }
 };
+
+/*
+using min heap
+*/
+class Solution {
+public:
+   typedef pair<int,int>p;
+
+    vector<int> topKFrequent(vector<int>& nums, int k) {
+        //take a vector to store the result
+        vector<int> result;
+        //store in freq map
+        unordered_map<int,int>mp;
+        for(int num :nums){
+            mp[num]++;
+        }
+
+        //put map in a priority queue
+        priority_queue<p,vector<p>,greater<p>>pq; //min heap
+        for(auto it:mp){
+            pq.push(make_pair(it.second,it.first));// {freq,num}
+            if(pq.size()>k){
+                 pq.pop();
+            }
+        }
+        
+
+
+       
+            
+
+            while(!pq.empty()){
+                result.push_back(pq.top().second);
+                pq.pop();
+
+
+            }
+           
+        
+        
+        return result;
+
+    }
+};
+
+
+/*
+USING BUCKET SORT
+TC:O(N)
+SC:O(N)
+*/
+
+class Solution {
+public:
+   typedef pair<int,int>p;
+
+    vector<int> topKFrequent(vector<int>& nums, int k) {
+        int n=nums.size();
+        //take a vector to store the result
+        vector<int> result;
+        //store in freq map
+        unordered_map<int,int>mp;
+        for(int num :nums){
+            mp[num]++;
+        }
+
+        //store in bucket
+        //indx=freq
+        //value=element
+        //bucket[i]=elements having i freq
+        vector<vector<int>>bucket(n+1); //at max freq can be size of array
+        for(auto it:mp){
+            int element=it.first;
+            int freq=it.second;
+            bucket[freq].push_back(element);
+        }
+
+        //pick elements from right to left of bucket to find max freq elemnt
+        for(int i=n;i>=0;i--){
+            if(bucket[i].size()==0)continue;
+            while(bucket[i].size()>0 && k>0){
+                result.push_back(bucket[i].back());
+                bucket[i].pop_back();
+                k--;
+            }
+
+        }
+        return result;
+
+    }
+};
+
