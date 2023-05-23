@@ -45,19 +45,24 @@ SC: O(k)
 class KthLargest {
 public:
     int K;
+    //take min heap coz we will remove all the smaller elements till size of pq >k
    priority_queue<int,vector<int>,greater<int>>pq;
     KthLargest(int k, vector<int>& nums) {
         K=k;
+        //put all the elements of nums in priority queue
         for(int num:nums)
          pq.push(num);
         
     }
     
     int add(int val) {
+        //push val in pq
         pq.push(val);
+         // remove smaller elements untill size of pq is k
         while(pq.size()>K){
             pq.pop();
         }
+        //now the top most element will be the kth largest element
         return pq.top();
         
     }
