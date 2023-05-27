@@ -2,8 +2,8 @@ PROBLEM:https://leetcode.com/problems/stone-game-iii/description/
 VIDEO:(MIK BHAIYA) https://www.youtube.com/watch?v=KI8suf35r38
 /*
 recursion + memo
-tc:
-sc:
+tc: o(n) //memo
+sc: O(n)
 */
 
 class Solution {
