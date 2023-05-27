@@ -71,3 +71,44 @@ public:
         
     }
 };
+
+/*
+SPACE OPTIMISATION
+TC:O(N)
+SC:O(1)
+*/
+class Solution {
+public:
+    int n;
+    
+    
+    string stoneGameIII(vector<int>& s) {
+        n=s.size();
+        int a=0;//t[i+1]
+        int b=0;//t[i+1]
+        int c=0;//t[i+2]
+        int result=INT_MAX;
+        for(int i=n-1;i>=0;i--){
+            
+            result=s[i]-a;
+
+            if(i+2<=n)
+            result=max(result,s[i]+s[i+1]-b);
+
+            if(i+3<=n)
+            result=max(result,s[i]+s[i+1]+s[i+2]-c);
+            c=b;
+            b=a;
+            a=result;
+        }
+        int diff=result;//Alice-Bob
+        if(diff<0)
+         return "Bob";
+        else if(diff>0)
+         return "Alice";
+       
+         return "Tie";
+
+        
+    }
+};
