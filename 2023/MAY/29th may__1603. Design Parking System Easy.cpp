@@ -1,5 +1,5 @@
 PROBLEM: https://leetcode.com/problems/design-parking-system/description/
-VIDEO :
+VIDEO : https://www.youtube.com/watch?v=ysZ7Rla4w7Y
 
 /*
 SELF
