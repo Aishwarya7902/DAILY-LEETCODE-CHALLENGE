@@ -31,3 +31,32 @@ public:
         
     }
 };
+
+/*
+using vector
+*/
+
+class MyHashSet {
+public:
+    
+    
+   vector<bool>v;
+    MyHashSet() : v(1e6+1,false){ }
+    
+    
+    void add(int key) {
+        v[key]=true;   
+    }
+    
+    void remove(int key) {
+        v[key]=0;
+        
+    }
+    
+    bool contains(int key) {
+       
+        return v[key];
+        
+    }
+};
+
