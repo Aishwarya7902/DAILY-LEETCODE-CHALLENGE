@@ -71,3 +71,28 @@ public:
        return maxLen;
     }
 };
+
+/*
+cleaner sliding window
+*/
+
+class Solution {
+public:
+    int n;
+    int longestSubarray(vector<int>& nums) {
+       n=nums.size();
+       int maxLen=0;
+       int last_zero_idx=-1;
+       int i=0,j=0;
+       while(j<n){
+           if(nums[j]==0){
+               i=last_zero_idx+1;
+               last_zero_idx=j;
+           }
+           maxLen=max(maxLen,j-i);
+           j++;
+       }
+       
+       return maxLen;
+    }
+};
