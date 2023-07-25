@@ -23,3 +23,27 @@ public:
         
     }
 };
+
+
+/*
+optimisation
+
+1.take a priority queue
+2.put all elements along with its index
+3.return index of top element ...........since it is max
+
+TC:O(log(n))
+SC:O(n)
+*/
+
+class Solution {
+public:
+    int peakIndexInMountainArray(vector<int>& arr) {
+        priority_queue<pair<int,int>>pq;//val,indx
+        for(int i=0;i<arr.size();i++){
+            pq.push({arr[i],i});
+        }
+        return pq.top().second;
+        
+    }
+};
