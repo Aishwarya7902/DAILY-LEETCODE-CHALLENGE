@@ -1,5 +1,5 @@
 PROBLEM:https://leetcode.com/problems/peak-index-in-a-mountain-array/description/
-VIDEO:
+VIDEO (MAZHAR BHAIYA):https://www.youtube.com/watch?v=Op07kT-LoH8
 
 /*
   BRUTE FORCE
@@ -32,7 +32,7 @@ optimisation
 2.put all elements along with its index
 3.return index of top element ...........since it is max
 
-TC:O(log(n))
+TC:O(log(n)) + O(n)
 SC:O(n)
 */
 
@@ -45,5 +45,30 @@ public:
         }
         return pq.top().second;
         
+    }
+};
+
+
+/*
+USING BINARY SEARCH
+TC:O(log(n))
+SC:O(1)
+*/
+
+class Solution {
+public:
+    int peakIndexInMountainArray(vector<int>& arr) {
+        int n=arr.size();
+        int l=0,r=n-1;
+        while(l<r){
+            int mid=l+ (r-l)/2;
+            if(arr[mid]<arr[mid+1]){
+                l=mid+1;
+            }
+            else{
+                r=mid;
+            }
+        }
+        return r;
     }
 };
