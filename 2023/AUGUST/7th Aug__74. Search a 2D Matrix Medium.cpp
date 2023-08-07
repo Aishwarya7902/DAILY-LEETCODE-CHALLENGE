@@ -1,5 +1,5 @@
 PROBLEM:https://leetcode.com/problems/search-a-2d-matrix/description/
-VIDEO:
+VIDEO:https://www.youtube.com/watch?v=NYk3IuJinuc
 
 /*
   brute force
@@ -42,6 +42,39 @@ public:
              j--;
             else if(matrix[i][j]<target)
              i++;
+            else
+             return true;
+        }
+        return false;
+        
+    }
+};
+
+/*METHOD 3
+
+  USING BINARY SEARCH
+  O(log(m * n))
+*/
+
+class Solution {
+public:
+    bool searchMatrix(vector<vector<int>>& matrix, int target) {
+        int m=matrix.size();
+        int n=matrix[0].size();
+        //since the whole matrix is sorted ...then ...whole 2D matrix ko khol do .....it will become a 1D sorted array...then do a binary search
+        int start=0;
+        int end=m*n-1;
+        while(start<=end){
+            int mid=start+(end-start)/2;
+            int row=mid/n;
+            int col=mid%n;
+
+            if(matrix[row][col]>target){
+                end=mid-1;
+            }
+            else if(matrix[row][col]<target){
+                start=mid+1;
+            }
             else
              return true;
         }
