@@ -26,7 +26,8 @@ public:
 /*
 approach 2
 
-  TC:
+  TC: o(m x n)
+since in worst case u will have to look in each cell of the matrix
 
   */
 
