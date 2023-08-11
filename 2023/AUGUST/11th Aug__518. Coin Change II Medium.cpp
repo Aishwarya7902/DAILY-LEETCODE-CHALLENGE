@@ -4,7 +4,7 @@ VIDEO(mik bhaiya):https://www.youtube.com/watch?v=HhSZQkdJZok
 /*
   RECURSION 
 
-  TC:
+  TC: at every point of time we have 2 options....take and not take....hence tc is o(2^n)
   SC:
 
 */
