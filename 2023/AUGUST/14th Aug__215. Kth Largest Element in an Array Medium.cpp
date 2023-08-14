@@ -22,3 +22,27 @@ public:
 };
 
 
+/*
+ method 2:
+ using priority queue
+ TC:
+ SC:
+ */
+ class Solution {
+public:
+    int n;
+    int findKthLargest(vector<int>& nums, int k) {
+        n=nums.size();
+        priority_queue<int>pq;
+        for(auto it:nums)
+         pq.push(it);
+
+        while(k>1){
+            pq.pop();
+            k--;
+        }
+        return pq.top();
+    }
+};
+
+
