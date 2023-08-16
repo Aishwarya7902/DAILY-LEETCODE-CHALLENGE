@@ -1,9 +1,9 @@
 PROBLEM :https://leetcode.com/problems/sliding-window-maximum/description/
-VIDEO(MIK BHAIYA):
+VIDEO(MIK BHAIYA):https://www.youtube.com/watch?v=29OnjVQ-fk4
 
 /*
   SLIDING WINDOW
-  TC:
+  TC: since we are processing each element once ......hence time complexity is linear..............i.e O(n)
   SC:
 */
 
