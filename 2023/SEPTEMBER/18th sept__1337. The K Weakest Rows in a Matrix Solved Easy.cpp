@@ -44,3 +44,59 @@ public:
         
     }
 };
+
+
+/*
+  Method 2
+  Binary Search
+  tc: o(mlogn) // binary search 
+     +o(mlogm) //sorting
+     +o(k) // choosing k elements
+  sc:o(m)
+  */
+
+class Solution {
+public:
+    
+    int binarySearch(vector<int>&arr,int l ,int r){
+        int result=-1;
+        int mid;
+        while(l<=r){
+            mid=l+(r-l)/2;
+            if(arr[mid]==1){
+                result=mid;
+                l=mid+1;
+            }
+            else{
+                r=mid-1;
+            }
+        }
+        return result+1;
+
+    }
+    vector<int> kWeakestRows(vector<vector<int>>& mat, int k) {
+        int m=mat.size();
+        int n=mat[0].size();
+        vector<int>result;
+        vector<pair<int,int>>countOnes;
+
+
+        for(int row=0;row<m;row++){
+            int cntSoldiers=binarySearch(mat[row],0,n-1);
+            countOnes.push_back({cntSoldiers,row});
+        }
+
+        //sorting
+        sort(countOnes.begin(),countOnes.end());
+
+        //taking k smallest elements
+        int i=0;
+        while(k){
+            result.push_back(countOnes[i].second);
+            i++;
+            k--;
+        }
+        return result;
+        
+    }
+};
