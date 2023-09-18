@@ -100,3 +100,61 @@ public:
         
     }
 };
+
+
+/*
+  Method 3 
+  using Heap
+  tc:o(mlogn) // in each row we are applying binary search to find no of soldiers
+     +o(mlogk) // in each row we are pushing k elements in heap
+    + +o(k) // choosing k elements
+
+  */
+
+class Solution {
+public:
+    
+    int binarySearch(vector<int>&arr,int l ,int r){
+        int result=-1;
+        int mid;
+        while(l<=r){
+            mid=l+(r-l)/2;
+            if(arr[mid]==1){
+                result=mid;
+                l=mid+1;
+            }
+            else{
+                r=mid-1;
+            }
+        }
+        return result+1;
+
+    }
+    vector<int> kWeakestRows(vector<vector<int>>& mat, int k) {
+        int m=mat.size();
+        int n=mat[0].size();
+        
+        priority_queue<pair<int,int>>pq;
+
+
+        for(int row=0;row<m;row++){
+            int cntSoldiers=binarySearch(mat[row],0,n-1);
+            pq.push({cntSoldiers,row});
+            if(pq.size()>k)
+             pq.pop();
+        }
+
+        vector<int>result(k);
+        //taking k smallest elements
+        int j=k-1;
+        while(!pq.empty()){
+            auto it=pq.top();
+            pq.pop();
+            result[j]=it.second;
+            j--;
+            
+        }
+        return result;
+        
+    }
+};
