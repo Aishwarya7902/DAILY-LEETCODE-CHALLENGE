@@ -1,5 +1,5 @@
 PROBLEM :https://leetcode.com/problems/the-k-weakest-rows-in-a-matrix/description/?envType=daily-question&envId=2023-09-18
-VIDEO (MIK BHAIYA):
+VIDEO (MIK BHAIYA): https://www.youtube.com/watch?v=X1ZG-CXkmEM
 
 /*
 
