@@ -1,5 +1,5 @@
 PROBLEM:https://leetcode.com/problems/find-the-duplicate-number/description/?envType=daily-question&envId=2023-09-19
-VIDEO(MIK BHAIYA):
+VIDEO(MIK BHAIYA):https://www.youtube.com/watch?v=49HrEGt6D2s
 
 /*
   NOTE [NOT RIGHT]
