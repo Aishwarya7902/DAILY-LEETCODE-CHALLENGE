@@ -2,6 +2,9 @@ PROBLEM:https://leetcode.com/problems/find-the-duplicate-number/description/?env
 VIDEO(MIK BHAIYA):
 
 /*
+  NOTE [NOT RIGHT]
+  COZ WE HAVE BEEN ASKED TO USE only constant extra space
+  
   METHOD 1
   USING SET
   1.traverse in nums
@@ -26,6 +29,8 @@ public:
 
 
 /*
+  NOTE [NOT RIGHT]
+  COZ WE HAVE BEEN ASKED TO USE only constant extra space
   method 2
   using map
 */
@@ -44,3 +49,36 @@ public:
         return -1;
     }
 };
+
+/*
+  USING SLOW AND FAST POINTER
+  RIGHT
+  TC:O(N)
+  SC:O(1)
+  */
+
+class Solution {
+public:
+    int findDuplicate(vector<int>& nums) {
+        int slow=nums[0];
+        int fast=nums[0];
+        slow=nums[slow];
+        fast=nums[nums[fast]];
+        while(slow!=fast){
+            slow=nums[slow];
+            fast=nums[nums[fast]];
+
+        }
+        slow=nums[0];
+        while(slow!=fast){
+            slow=nums[slow];
+            fast=nums[fast];
+
+        }
+        return slow;
+
+    }
+};
+
+
+
