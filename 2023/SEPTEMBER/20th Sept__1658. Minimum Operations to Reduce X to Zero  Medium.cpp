@@ -4,8 +4,8 @@ VIDEO :https://www.youtube.com/watch?v=w7u9sMlx7zc
 
 /*
 
-  tc:
-  sc:
+  tc:o(n)
+  sc:o(n)
 
 */
 
