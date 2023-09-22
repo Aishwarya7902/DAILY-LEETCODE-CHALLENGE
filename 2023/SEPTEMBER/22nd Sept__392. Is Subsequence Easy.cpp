@@ -21,3 +21,38 @@ public:
        return i==m;
     }
 };
+
+
+/*
+FOLLOW UP
+TC:O(m*logn)
+SC:O(m)
+*/
+
+lass Solution {
+public:
+    bool isSubsequence(string s, string t) {
+       int m=s.size();
+       int n=t.size();
+       unordered_map<int,vector<int>>mp;
+       //putting the index corresponding to every character of t
+       for(int i=0;i<n;i++){
+           mp[t[i]].push_back(i);
+       }
+       int prev=-1;
+
+       for(int j=0;j<m;j++){
+           char ch=s[j];
+           //character not found in t
+           if(mp.find(ch)==mp.end())return false;
+           vector<int>curr=mp[ch];
+           auto it=upper_bound(begin(curr),end(curr),prev);//o(logn)
+           if(it==curr.end())return false;
+           prev=*it;
+
+
+       }
+       return true;
+
+    }
+};
