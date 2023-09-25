@@ -1,5 +1,5 @@
 PROBLEM:https://leetcode.com/problems/find-the-difference/description/?envType=daily-question&envId=2023-09-25
-VIDEO:
+VIDEO: https://www.youtube.com/watch?v=eWoaue1y-Cc
 
 /*
 
@@ -65,5 +65,50 @@ public:
             }
         }
         return t[j];
+    }
+};
+
+
+/*
+method 3
+
+tc:o(n)
+sc:o(1)
+  */
+class Solution {
+public:
+    char findTheDifference(string s, string t) {
+        int sum_s=0;
+        
+        for(char &ch:s)
+         sum_s+=ch;
+
+        int sum_t=0;
+        for(char &ch:t)
+         sum_t+=ch;
+         return char(sum_t-sum_s);
+    }
+};
+
+
+/*
+method 4:
+tc:o(n)
+sc:o(1)
+
+  */
+
+class Solution {
+public:
+    char findTheDifference(string s, string t) {
+        int xorr=0;
+        
+        for(char &ch:s)
+         xorr^=ch;
+
+        
+        for(char &ch:t)
+         xorr^=ch;
+         return char(xorr);
     }
 };
