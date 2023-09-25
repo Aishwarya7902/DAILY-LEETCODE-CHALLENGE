@@ -37,3 +37,33 @@ public:
         return ans;
     }
 };
+
+
+
+/*
+method 2
+tc:o(m+n) + o(nlogn +mlogm)//for sorting
+sc:o(1)
+  */
+
+//sort both
+//traverse in both simultaneously
+//the moment s[i]!=t[j]....return t[j]...coz this is the unmatched character
+class Solution {
+public:
+    char findTheDifference(string s, string t) {
+        sort(begin(s),end(s));
+        sort(begin(t),end(t));
+        int i=0,j=0;
+        int m=s.size();
+        int n=t.size();
+        while(i<m && j<n){
+            if(s[i]!=t[j])break;
+            else{
+                i++;
+                j++;
+            }
+        }
+        return t[j];
+    }
+};
