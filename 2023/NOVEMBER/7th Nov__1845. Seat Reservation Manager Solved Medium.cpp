@@ -34,3 +34,34 @@ public:
         pq.push(seatNumber); //logn
     }
 };
+
+
+/*
+method 3
+  tc:logn
+  sc:o(n)
+*/
+
+class SeatManager {
+public:
+    priority_queue<int,vector<int>,greater<int>>pq;
+    int seat_marker;
+    SeatManager(int n) {
+      seat_marker=1;
+        
+    }
+    
+    int reserve() {
+        if(!pq.empty()){
+            int seat=pq.top();
+            pq.pop();//logn
+            return seat;
+        }
+        return seat_marker++;
+    }
+    
+    void unreserve(int seatNumber) {
+        pq.push(seatNumber); //logn
+    }
+};
+
