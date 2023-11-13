@@ -3,8 +3,8 @@ VIDEO(MIK BHAIYA):https://www.youtube.com/watch?v=nEDXPkGsjXo
 
 /*
   SOLVED ON OWN
-  TC:
-  SC:
+  TC:o(nlogn)
+  SC:o(n)
 
 */
 
