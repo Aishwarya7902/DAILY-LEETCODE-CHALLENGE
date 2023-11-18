@@ -4,7 +4,7 @@ VIDEO(MIK BHAIYA):
 
 /*
   BRUTE FORCE (GIVES TLE)__ done by self🙅‍♂️
- TC: O(nlogn) + O(n)
+ TC: O(nlogn) + O(n^2)
  SC: O(1)
 
 */
