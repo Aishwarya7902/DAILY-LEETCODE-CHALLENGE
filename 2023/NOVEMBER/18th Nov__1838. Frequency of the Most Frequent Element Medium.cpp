@@ -37,3 +37,56 @@ public:
         
     }
 };
+
+
+  /************************************************ C++ *******************************************************/
+//OPTIMISATION-1 (Using Binary Search)
+//T.C : O(nlogn)
+//S.C : O(n) for prefixSum for effienctly calculating windowSum
+
+class Solution {
+public:
+    int BinarySearch(vector<int>& nums,int target_indx,int k,vector<long>& prefixSum){
+     int target=nums[target_indx];
+     int l=0;
+     int r=target_indx;
+     int best_indx=target_indx;
+     while(l<=r){
+         int mid=l+(r-l)/2;
+         long count=target_indx-mid+1;
+         long windowSum=count*target;
+         long currSum=prefixSum[target_indx]-prefixSum[mid]+nums[mid];
+         int operation=windowSum-currSum;
+         if(operation>k){
+             l=mid+1;
+         }
+
+         else{
+             best_indx=mid;
+             r=mid-1;
+         }
+     }
+
+     return target_indx-best_indx+1;
+        
+    }
+    int maxFrequency(vector<int>& nums, int k) {
+        int n=nums.size();
+        sort(begin(nums),end(nums));//TC:o(nlogn)
+        vector<long> prefixSum(n);
+        prefixSum[0]=nums[0];
+        for(int i=1;i<n;i++){
+            prefixSum[i]=prefixSum[i-1]+nums[i];
+        }
+        
+        int result=0; //to store our answer
+
+        for(int target_indx=0;target_indx<n;target_indx++){ //o(n)
+            int frequency=BinarySearch(nums,target_indx,k,prefixSum);//o(n)
+            result=max(result,frequency);
+        }
+
+        return result;
+        
+    }
+};
