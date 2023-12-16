@@ -27,3 +27,31 @@ public:
         return mp1==mp2;
     }
 };
+
+
+/*
+OPTIMISATION
+Intuition : sort both strings , now check characterwise , if any corresponding char does not match , return false
+  else return true
+
+TC : O(mlogm + nlogn)
+SC: O(1)
+*/
+
+class Solution {
+public:
+    bool isAnagram(string s, string t) {
+        sort(begin(s),end(s));
+        sort(begin(t),end(t));
+        int m=s.size();
+        int n=t.size();
+        if(m!=n)return false;
+
+        int i=0;
+        while(i<m){
+            if(s[i]!=t[i])return false;
+            i++;
+        }
+        return true;
+    }
+};
