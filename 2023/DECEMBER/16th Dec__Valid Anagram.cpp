@@ -38,20 +38,12 @@ TC : O(mlogm + nlogn)
 SC: O(1)
 */
 
-class Solution {
-public:
+
+   class Solution {
+    public:
     bool isAnagram(string s, string t) {
         sort(begin(s),end(s));
         sort(begin(t),end(t));
-        int m=s.size();
-        int n=t.size();
-        if(m!=n)return false;
-
-        int i=0;
-        while(i<m){
-            if(s[i]!=t[i])return false;
-            i++;
-        }
-        return true;
+        return s==t;
     }
 };
