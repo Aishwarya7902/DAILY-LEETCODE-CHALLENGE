@@ -1,5 +1,5 @@
 PROBLEM :https://leetcode.com/problems/buy-two-chocolates/description/?envType=daily-question&envId=2023-12-20
-VIDEO (MIK BHAIYA):
+VIDEO (MIK BHAIYA):https://www.youtube.com/watch?v=MihxAUNFac0
 
 /*
   BRUTE FORCE
