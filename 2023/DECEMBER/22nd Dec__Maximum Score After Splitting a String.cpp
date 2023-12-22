@@ -38,3 +38,35 @@ public:
         return result;
     }
 };
+
+
+/*
+  TC: O(N) //2 pass solution
+  SC: O(1)
+  // totalOnes nikal lo
+  // har index tak zero  ka and one ka  count nikalte lo...that will be left me kitne zero hain and kitne one hain
+  // agr left side me one ka count pata hai...to total-left kar ke right me one ka count nikal jayega
+  */
+
+//TC:o(n*n) since constraints are low hence it will pass
+//SC:o(1)
+class Solution {
+public:
+    int maxScore(string s) {
+        int result=0;
+        int n=s.size();
+        int totalOne=0;
+        for(char &ch:s){
+            if(ch=='1')totalOne++;
+        }
+        int zero=0;
+        int one=0;
+        for(int i=0;i<n-1;i++){
+            if(s[i]=='0')zero++;
+            else if(s[i]=='1')one++;
+            int currRes=zero+(totalOne-one);
+            result=max(result,currRes);
+        }
+        return result;
+    }
+};
