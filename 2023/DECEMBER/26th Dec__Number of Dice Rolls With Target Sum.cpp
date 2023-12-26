@@ -55,4 +55,14 @@ public:
 
     }
 };
+
+
+/*
+ BOTTOM UP 
+ lets define the states
+ t[i][j] means no of ways to obtain 
+                                  sum=j
+                                  if we have i no of dices
+
+*/
   
