@@ -32,8 +32,8 @@ public:
 
 /*
 MEMOIZATION
-TC:
-SC:
+TC: O(n*target*k)
+SC: O(31*1001) ~= O(1)
 */
 class Solution {
 public:
