@@ -64,5 +64,35 @@ public:
                                   sum=j
                                   if we have i no of dices
 
+  //T.C : O(n*target*k)
+//S.C : O(n*target)
+
 */
+
+class Solution {
+public:
+    int MOD=1e9+7;
+    
+    
+    int numRollsToTarget(int n, int k, int target) {
+       vector<vector<int>> t(n+1,vector<int>(target+1));
+        t[0][0]=1; //n==0 && target==0
+       for(int i=1;i<n+1;i++){
+           for(int j=1;j<target+1;j++){
+               //i=no of dice
+               //j=target value
+
+               int ways=0;
+               //each dice will have k face value
+               for(int face=1;face<=k;face++){
+                   if(j>=face)
+                   ways= (ways+t[i-1][j-face])%MOD;
+               }
+               t[i][j]=ways;
+           }
+       }
+       return t[n][target];
+
+    }
+};
   
