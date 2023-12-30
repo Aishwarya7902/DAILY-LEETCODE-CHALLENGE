@@ -52,3 +52,32 @@ public:
        return true;
     }
 };
+
+/*
+METHOD 3:
+USING LAMBDA FUNCTION
+
+*/
+
+class Solution {
+public:
+    bool makeEqual(vector<string>& words) {
+       int n=words.size();
+       int arr[26]={0};
+       for(auto &str:words){
+           for(char &ch:str){
+               arr[ch-'a']++;
+           }
+       } 
+
+       auto lambda=[&](int freq){
+           return freq%n==0;
+       };
+
+       return all_of(begin(arr),end(arr),lambda);
+
+       return true;
+    }
+};
+
+
