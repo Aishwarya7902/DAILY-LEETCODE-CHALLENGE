@@ -1,5 +1,5 @@
 PROBLEM:https://leetcode.com/problems/redistribute-characters-to-make-all-strings-equal/?envType=daily-question&envId=2023-12-30
-VIDEO: 
+VIDEO(MIK BHAIYA): https://www.youtube.com/watch?v=BWETRja2KHg
 
 /*
   approach 1
